@@ -11,6 +11,7 @@ import javax.jms.MessageProducer;
 import javax.jms.Session;
 
 import backtype.storm.topology.base.BaseRichBolt;
+
 import org.apache.storm.jms.JmsMessageProducer;
 import org.apache.storm.jms.JmsProvider;
 import org.slf4j.Logger;
@@ -47,6 +48,7 @@ import backtype.storm.tuple.Tuple;
  * @author P. Taylor Goetz
  *
  */
+@SuppressWarnings("serial")
 public class JmsBolt extends BaseRichBolt {
 	private static Logger LOG = LoggerFactory.getLogger(JmsBolt.class);
 	
@@ -177,6 +179,7 @@ public class JmsBolt extends BaseRichBolt {
     /**
 	 * Initializes JMS resources.
 	 */
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void prepare(Map stormConf, TopologyContext context,
 			OutputCollector collector) {
